@@ -1,334 +1,520 @@
-# \# Sistema de Gestión Climática Inteligente — Fase 1
+\# Sistema de Gestión Climática Inteligente — Fase 1
 
-# 
 
-# Proyecto enfocado en el diseño teórico de un sistema de refrigeración termoeléctrico capaz de producir temperaturas subambiente, monitorear variables climáticas y plantear una arquitectura para la transmisión y almacenamiento de datos en tiempo real.
 
-# 
+Proyecto enfocado en el diseño teórico de un sistema de refrigeración termoeléctrico capaz de producir temperaturas subambiente, monitorear variables climáticas y plantear una arquitectura para la transmisión y almacenamiento de datos en tiempo real.
 
-# \## 🌐 Dashboard de monitoreo
 
-# 
 
-# Puedes visualizar la interfaz propuesta para la Fase 1 en el siguiente enlace:
+\---
 
-# 
 
-# \### 👉 \[Abrir Dashboard de Gestión Climática](https://emikuchaw.github.io/Sistema-Gestion-Climatica-Fase1/)
 
-# 
+\## Dashboard de monitoreo
 
-# > \*\*Nota:\*\* actualmente el dashboard trabaja con datos simulados utilizados únicamente para demostrar el funcionamiento conceptual del sistema de adquisición, transmisión, visualización y almacenamiento de información.
 
-# 
 
-# \---
+Puedes visualizar la interfaz propuesta para la Fase 1 aquí:
 
-# 
 
-# \## Objetivo de la Fase 1
 
-# 
+👉 \[Abrir Dashboard de Gestión Climática](https://emikuchaw.github.io/Sistema-Gestion-Climatica-Fase1/)
 
-# Diseñar teóricamente un sistema de refrigeración capaz de disminuir la temperatura de una carga por debajo de la temperatura ambiente e integrar conceptualmente:
 
-# 
 
-# \- Sensores de temperatura.
+> \*\*Nota:\*\* actualmente el dashboard utiliza datos simulados únicamente para demostrar el funcionamiento conceptual de la adquisición, transmisión, visualización y almacenamiento de información.
 
-# \- Sensor de humedad relativa.
 
-# \- Adquisición de datos.
 
-# \- Transmisión de información en tiempo real.
+\---
 
-# \- Almacenamiento de mediciones.
 
-# \- Visualización mediante una interfaz web.
 
-# \- Análisis mediante la Primera y Segunda Ley de la Termodinámica.
+\## Objetivo de la Fase 1
 
-# 
 
-# \---
 
-# 
+Diseñar teóricamente un sistema de refrigeración capaz de disminuir la temperatura de una carga por debajo de la temperatura ambiente e integrar conceptualmente:
 
-# \## Sistema de refrigeración propuesto
 
-# 
 
-# Se propone utilizar un sistema de refrigeración termoeléctrico mediante un \*\*módulo Peltier\*\*.
+\- Sensores de temperatura.
 
-# 
+\- Sensor de humedad relativa.
 
-# La arquitectura térmica propuesta es:
+\- Adquisición de datos.
 
-# 
+\- Transmisión de información en tiempo real.
 
-# Carga térmica / agua  
+\- Almacenamiento de mediciones.
 
-# ↓  
+\- Visualización mediante una interfaz web.
 
-# Bloque frío o intercambiador  
+\- Análisis mediante la Primera y Segunda Ley de la Termodinámica.
 
-# ↓  
 
-# Módulo Peltier  
 
-# ↓  
+\---
 
-# Disipador tipo cooler de CPU  
 
-# ↓  
 
-# Ventilador  
+\## Sistema de refrigeración propuesto
 
-# ↓  
 
-# Ambiente
 
-# 
+Para esta fase se propone utilizar un sistema de refrigeración termoeléctrico mediante un \*\*módulo Peltier\*\*.
 
-# El módulo Peltier transporta calor desde la cara fría hacia la cara caliente utilizando energía eléctrica.
 
-# 
 
-# \---
+\### Flujo térmico propuesto
 
-# 
 
-# \## Arquitectura de adquisición de datos
 
-# 
+Carga térmica / agua  
 
-# La arquitectura propuesta para futuras mediciones reales es:
+↓  
 
-# 
+Bloque frío o intercambiador  
 
-# Sensores  
+↓  
 
-# ↓  
+Módulo Peltier  
 
-# ESP32  
+↓  
 
-# ↓  
+Disipador tipo cooler de CPU  
 
-# Wi-Fi  
+↓  
 
-# ↓  
+Ventilador  
 
-# Dashboard web  
+↓  
 
-# ↓  
+Ambiente
 
-# Almacenamiento de datos
 
-# 
 
-# Durante esta fase, los valores utilizados en el dashboard son simulados.
+El módulo Peltier transporta calor desde el lado frío hacia el lado caliente utilizando energía eléctrica.
 
-# 
 
-# En una implementación física posterior, la simulación podrá sustituirse por datos obtenidos directamente desde los sensores conectados al ESP32.
 
-# 
+\---
 
-# \---
 
-# 
 
-# \## Dashboard
+\## ¿Por qué utilizar una Peltier?
 
-# 
 
-# El dashboard desarrollado permite representar de manera conceptual:
 
-# 
+La tecnología Peltier fue seleccionada para esta etapa debido a que ofrece:
 
-# \- Temperatura del agua.
 
-# \- Temperatura ambiente.
 
-# \- Humedad relativa.
+\- Tamaño compacto.
 
-# \- Temperatura de la cara fría de la Peltier.
+\- Ausencia de refrigerantes.
 
-# \- Temperatura de la cara caliente.
+\- Fácil integración electrónica.
 
-# \- Voltaje.
+\- Control mediante corriente eléctrica.
 
-# \- Corriente.
+\- Compatibilidad con microcontroladores.
 
-# \- Potencia eléctrica.
+\- Pocas partes móviles.
 
-# \- Temperatura mínima registrada.
+\- Facilidad para integrar sensores.
 
-# \- Gráfica de temperatura contra tiempo.
+\- Posibilidad de aplicar control automático en etapas posteriores.
 
-# \- Historial de registros.
 
-# \- Almacenamiento local.
 
-# \- Exportación de datos en formato CSV.
+Aunque su eficiencia energética es menor que la de otros sistemas como la compresión de vapor, resulta adecuada para un prototipo académico a pequeña escala.
 
-# 
 
-# \---
 
-# 
+\---
 
-# \## Dimensionamiento teórico
 
-# 
 
-# Para el análisis preliminar se consideraron:
+\## Arquitectura de adquisición de datos
 
-# 
 
-# | Parámetro | Valor |
 
-# |---|---:|
+La arquitectura propuesta para futuras mediciones reales es:
 
-# | Volumen de agua | 250 mL |
 
-# | Masa aproximada | 0.250 kg |
 
-# | Temperatura inicial | 25 °C |
+Sensores  
 
-# | Temperatura objetivo de cálculo | 13 °C |
+↓  
 
-# | Diferencia de temperatura | 12 °C |
+ESP32  
 
-# | Energía térmica a retirar | 12.54 kJ |
+↓  
 
-# | Tiempo considerado | 600 s |
+Wi-Fi  
 
-# | Capacidad frigorífica ideal | 20.9 W |
+↓  
 
-# 
+Dashboard web  
 
-# La energía térmica se calculó mediante:
+↓  
 
-# 
+Almacenamiento de datos
 
-# Q = m · Cp · ΔT
 
-# 
 
-# obteniéndose:
+Durante esta fase, los valores utilizados en el dashboard son simulados.
 
-# 
 
-# Q = 12.54 kJ
 
-# 
+En una implementación física posterior, la simulación podrá ser sustituida por lecturas reales obtenidas directamente desde los sensores conectados al ESP32.
 
-# Para un tiempo de 600 segundos:
 
-# 
 
-# Qc = Q / t
+\---
 
-# 
 
-# Qc = 20.9 W
 
-# 
+\## Dashboard
 
-# Estos valores corresponden únicamente al \*\*dimensionamiento teórico preliminar de la Fase 1\*\*.
 
-# 
 
-# \---
+La interfaz desarrollada permite representar de manera conceptual:
 
-# 
 
-# \## Primera Ley de la Termodinámica
 
-# 
+\- Temperatura del agua.
 
-# El balance energético conceptual del sistema se expresa como:
+\- Temperatura ambiente.
 
-# 
+\- Humedad relativa.
 
-# Qh = Qc + Win
+\- Temperatura de la cara fría de la Peltier.
 
-# 
+\- Temperatura de la cara caliente.
 
-# donde:
+\- Voltaje.
 
-# 
+\- Corriente.
 
-# \- \*\*Qc:\*\* calor retirado de la región fría.
+\- Potencia eléctrica.
 
-# \- \*\*Win:\*\* energía eléctrica suministrada.
+\- Temperatura mínima registrada.
 
-# \- \*\*Qh:\*\* calor rechazado hacia el ambiente.
+\- Gráfica de temperatura contra tiempo.
 
-# 
+\- Historial de registros.
 
-# \---
+\- Almacenamiento local.
 
-# 
+\- Exportación de datos en formato CSV.
 
-# \## Segunda Ley de la Termodinámica
 
-# 
 
-# El desempeño ideal del sistema puede compararse posteriormente mediante el coeficiente de desempeño de Carnot:
+\---
 
-# 
 
-# COP = Tc / (Th - Tc)
 
-# 
+\## Dimensionamiento teórico
 
-# El COP experimental será determinado cuando se disponga de mediciones reales de temperatura, voltaje, corriente y capacidad frigorífica.
 
-# 
 
-# \---
+Para el análisis preliminar se consideraron las siguientes condiciones:
 
-# 
 
-# \## Estructura del repositorio
 
-# 
+| Parámetro | Valor |
 
-# ```text
+|---|---:|
 
-# Sistema-Gestion-Climatica-Fase1/
+| Volumen de agua | 250 mL |
 
-# │
+| Masa aproximada | 0.250 kg |
 
-# ├── index.html
+| Temperatura inicial | 25 °C |
 
-# ├── README.md
+| Temperatura objetivo de cálculo | 13 °C |
 
-# │
+| Diferencia de temperatura | 12 °C |
 
-# ├── assets/
+| Energía térmica a retirar | 12.54 kJ |
 
-# │   ├── boceto\_sistema\_peltier.png
+| Tiempo considerado | 600 s |
 
-# │   └── ciclo\_refrigeracion\_peltier.png
+| Capacidad frigorífica ideal | 20.9 W |
 
-# │
 
-# ├── data/
 
-# │   └── datos\_simulados.csv
+\### Cálculo de energía térmica
 
-# │
 
-# ├── calculos/
 
-# │   └── README.md
+La energía requerida para enfriar el agua se calcula mediante:
 
-# │
 
-# └── docs/
 
-# &#x20;   └── README.md
+`Q = m × Cp × ΔT`
+
+
+
+Sustituyendo:
+
+
+
+`Q = 0.250 × 4.18 × 12`
+
+
+
+Resultado:
+
+
+
+`Q = 12.54 kJ`
+
+
+
+\---
+
+
+
+\### Capacidad frigorífica ideal
+
+
+
+Para un tiempo de 600 segundos:
+
+
+
+`Qc = Q / t`
+
+
+
+Sustituyendo:
+
+
+
+`Qc = 12 540 / 600`
+
+
+
+Resultado:
+
+
+
+`Qc = 20.9 W`
+
+
+
+Este valor representa únicamente la \*\*capacidad frigorífica ideal requerida\*\*, sin considerar pérdidas térmicas.
+
+
+
+\---
+
+
+
+\## Primera Ley de la Termodinámica
+
+
+
+El balance energético conceptual del sistema se expresa como:
+
+
+
+`Qh = Qc + Win`
+
+
+
+Donde:
+
+
+
+\- `Qc` = calor retirado de la región fría.
+
+\- `Win` = energía eléctrica suministrada.
+
+\- `Qh` = calor rechazado hacia el ambiente.
+
+
+
+Esto significa que el sistema de disipación debe eliminar tanto el calor extraído de la carga como parte de la energía eléctrica suministrada al módulo.
+
+
+
+\---
+
+
+
+\## Segunda Ley de la Termodinámica
+
+
+
+El desempeño máximo teórico puede compararse con un refrigerador reversible mediante el COP de Carnot:
+
+
+
+`COP Carnot = Tc / (Th - Tc)`
+
+
+
+El COP real será determinado posteriormente cuando se disponga de mediciones experimentales de:
+
+
+
+\- temperatura;
+
+\- voltaje;
+
+\- corriente;
+
+\- potencia;
+
+\- capacidad frigorífica.
+
+
+
+\---
+
+
+
+\## Componentes propuestos
+
+
+
+\- Módulo termoeléctrico Peltier.
+
+\- Bloque frío o intercambiador.
+
+\- Pasta térmica.
+
+\- Disipador tipo cooler de CPU.
+
+\- Ventilador.
+
+\- Recipiente aislado.
+
+\- Sensores de temperatura.
+
+\- Sensor de humedad.
+
+\- ESP32.
+
+\- Fuente de alimentación.
+
+\- Dashboard web.
+
+\- Sistema de almacenamiento de datos.
+
+
+
+\---
+
+
+
+\## Estructura del repositorio
+
+
+
+&#x20;   Sistema-Gestion-Climatica-Fase1/
+
+&#x20;   │
+
+&#x20;   ├── index.html
+
+&#x20;   ├── README.md
+
+&#x20;   │
+
+&#x20;   ├── assets/
+
+&#x20;   │   ├── boceto\_sistema\_peltier.png
+
+&#x20;   │   └── ciclo\_refrigeracion\_peltier.png
+
+&#x20;   │
+
+&#x20;   ├── data/
+
+&#x20;   │   └── datos\_simulados.csv
+
+&#x20;   │
+
+&#x20;   ├── calculos/
+
+&#x20;   │   └── README.md
+
+&#x20;   │
+
+&#x20;   └── docs/
+
+&#x20;       └── README.md
+
+
+
+\---
+
+
+
+\## Estado actual del proyecto
+
+
+
+\### Fase 1
+
+
+
+\- ✅ Diseño conceptual del sistema.
+
+\- ✅ Selección teórica del sistema de refrigeración.
+
+\- ✅ Dimensionamiento térmico preliminar.
+
+\- ✅ Análisis mediante Primera Ley.
+
+\- ✅ Análisis mediante Segunda Ley.
+
+\- ✅ Arquitectura de adquisición de datos.
+
+\- ✅ Dashboard web.
+
+\- ✅ Datos simulados en tiempo real.
+
+\- ✅ Almacenamiento local.
+
+\- ✅ Exportación CSV.
+
+
+
+\### Desarrollo posterior
+
+
+
+\- ⏳ Integración del ESP32.
+
+\- ⏳ Sensores físicos.
+
+\- ⏳ Lecturas experimentales.
+
+\- ⏳ Control térmico real.
+
+\- ⏳ Sustitución de datos simulados por datos reales.
+
+\- ⏳ Aplicación final del sistema.
+
+
+
+\---
+
+
+
+\## Aclaración
+
+
+
+Este repositorio corresponde al desarrollo conceptual y teórico de la \*\*Fase 1\*\*.
+
+
+
+Los valores mostrados actualmente en el dashboard no representan mediciones experimentales. Se utilizan únicamente para demostrar el funcionamiento de la interfaz y la arquitectura propuesta para la recopilación, transmisión y almacenamiento de datos.
 
