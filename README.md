@@ -8,7 +8,7 @@ Proyecto enfocado en el diseño teórico de un sistema de refrigeración termoel
 
 Puedes visualizar la interfaz propuesta para la Fase 1 aquí:
 
-[Abrir Dashboard de Gestión Climática](https://emikuchaw.github.io/Sistema-Gestion-Climatica-Fase1/)
+[Abrir Dashboard de Gestión Climática](https://emikuchaw.github.io/Sistema-Gestion-Climatica-Fase1./)
 
 > **Nota:** actualmente el dashboard utiliza datos simulados únicamente para demostrar el funcionamiento conceptual de la adquisición, transmisión, visualización y almacenamiento de información.
 
